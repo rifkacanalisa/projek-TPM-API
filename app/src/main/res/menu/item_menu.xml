@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/ic_match"
+        android:icon="@drawable/ic_baseline_schedule_24"
+        android:title="Match"
+        />
+    <item
+        android:id="@+id/ic_team"
+        android:icon="@drawable/ic_baseline_sports_basketball_24"
+        android:title="Team"
+        />
+
+</menu>
