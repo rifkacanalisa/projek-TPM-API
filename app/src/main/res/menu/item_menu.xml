@@ -11,4 +11,10 @@
         android:title="Team"
         />
 
+    <item
+        android:id="@+id/ic_profile"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="Profile"
+        />
+
 </menu>

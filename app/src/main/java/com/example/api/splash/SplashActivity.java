@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.example.api.LoginActivity;
 import com.example.api.MainActivity;
 import com.example.api.R;
 
@@ -18,7 +19,7 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         new Handler().postDelayed(() -> {
-                    Intent home = new Intent(SplashActivity.this, MainActivity.class);
+                    Intent home = new Intent(SplashActivity.this, LoginActivity.class);
                     startActivity(home);
                     finish();
                 }, SPLASH_TIME
