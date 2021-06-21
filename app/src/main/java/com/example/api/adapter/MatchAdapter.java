@@ -50,6 +50,8 @@ public class MatchAdapter extends RecyclerView.Adapter<MatchAdapter.ViewHolder> 
         ImageView ivTeamHome, ivTeamAway;
         TextView tvHomeName, tvHomeScore, tvAwayName, tvAwayScore, tvDate;
         String idHomeTeam, idAwayTeam;
+        String sHomeScore, sAwayScore;
+        int homeScore, awayScore;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -69,23 +71,25 @@ public class MatchAdapter extends RecyclerView.Adapter<MatchAdapter.ViewHolder> 
 
             new NBAService().getDetailTeam(detailHomeListener, idHomeTeam);
             new NBAService().getDetailTeam(detailAwayListener, idAwayTeam);
-
-//            Glide.with(itemView.getContext()).load(new NBAService().getDetailTeam(detailListener, item.getIdHomeTeam())).into(ivTeamHome);
+            
             tvHomeName.setText(item.getStrHomeTeam());
             tvHomeScore.setText(item.getIntHomeScore());
             tvAwayName.setText(item.getStrAwayTeam());
             tvAwayScore.setText(item.getIntAwayScore());
             tvDate.setText(item.getDateEvent());
 
-            int homeScore, awayScore;
-            homeScore =  Integer.parseInt(item.getIntHomeScore());
-            awayScore =  Integer.parseInt(item.getIntAwayScore());
-            if(homeScore > awayScore){
-                tvHomeScore.setTextColor(Color.parseColor("#537a50"));
-                tvAwayScore.setTextColor(Color.parseColor("#bf5c5c"));
-            } else {
-                tvHomeScore.setTextColor(Color.parseColor("#bf5c5c"));
-                tvAwayScore.setTextColor(Color.parseColor("#537a50"));
+            sHomeScore = item.getIntHomeScore();
+            sAwayScore = item.getIntAwayScore();
+            if(sHomeScore!=null && sAwayScore!=null){
+                homeScore = Integer.parseInt(sHomeScore);
+                awayScore = Integer.parseInt(sAwayScore);
+                if(homeScore > awayScore){
+                    tvHomeScore.setTextColor(Color.parseColor("#537a50"));
+                    tvAwayScore.setTextColor(Color.parseColor("#bf5c5c"));
+                } else {
+                    tvHomeScore.setTextColor(Color.parseColor("#bf5c5c"));
+                    tvAwayScore.setTextColor(Color.parseColor("#537a50"));
+                }
             }
         }
 
